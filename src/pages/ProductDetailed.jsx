@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { getProductsThunk } from '../store/slices/products.slice';
+import { getProductsThunk, filterByCategoryThunk } from '../store/slices/products.slice';
 import { useNavigate, useParams } from 'react-router-dom'
 
 const ProductDetailed = () => {
@@ -29,10 +29,16 @@ const ProductDetailed = () => {
   return (
     <div className='product-detailed-container'>
       <div className="pd-btn-container">
-        <button onClick={() => navigate('/')}>
+        <button onClick={() => navigate(-1)}>
           <i className='bx bx-arrow-back'></i>
           <p>Back</p>
         </button>
+      </div>
+      <div className="pd-category-container" // onClick={() => {
+        // navigate('/')
+        // dispatch(filterByCategoryThunk(productData?.category?.id)) }}
+      >
+        <p>{productData?.category?.name}</p>
       </div>
       <div className="product-container">
         <h2>{productData?.title}</h2>
@@ -46,7 +52,9 @@ const ProductDetailed = () => {
             <p>${productData?.price}</p>
           </div>
           <div className="product-button">
-            <button>Buy now!</button>
+            <button>
+              <h4>Add to cart</h4>
+            </button>
           </div>
         </div>
       </div>

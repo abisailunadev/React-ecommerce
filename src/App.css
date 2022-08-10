@@ -262,8 +262,16 @@ nav{
   border-radius: 5px;
 }
 
+.pd-category-container{
+  margin: 0.5rem 0;
+}
+
+.pd-category-container p{
+  color: rgb(102, 102, 102);
+}
+
 .product-container{
-  margin: 1rem 0;
+  margin: 0 0 1rem 0;
   padding: 1rem;
   background-color: white;
   border-radius: 0.5rem;
@@ -288,8 +296,9 @@ nav{
 }
 
 .product-container .product-price-buy button{
-  width: 80%;
+  width: 100%;
   padding: 0.5rem;
+  height: 40px;
 }
 
 .pd-img-container{

@@ -35,24 +35,24 @@ const ProductDetailed = () => {
         </button>
       </div>
       <div className="product-container">
+        <h2>{productData?.title}</h2>
         <div className="pd-img-container">
           <img src={productData?.productImgs?.[0]} alt="" />
         </div>
         <div className="pd-line"></div>
-        <h3>{productData?.title}</h3>
         <div className="product-price-buy">
           <div className="product-price">
-            <p>Price</p>
+            <h3>Price</h3>
             <p>${productData?.price}</p>
           </div>
           <div className="product-button">
-            <button>Buy</button>
+            <button>Buy now!</button>
           </div>
         </div>
-        <div className="pd-line"></div>
-        <div className="pd-description-container">
-          <p>{productData?.description}</p>
-        </div>
+      </div>
+      <div className="pd-description-container">
+        <h3>About this product</h3>
+        <p>{productData?.description}</p>
       </div>
     </div>
   );

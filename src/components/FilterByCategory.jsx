@@ -26,7 +26,6 @@ const FilterByCategory = ({categories}) => {
               {showAll &&
                 <li onClick={() => {
                   dispatch(getProductsThunk())
-                  dispatch(setShowAll(false))
                 }}>
                   Show all
                 </li>

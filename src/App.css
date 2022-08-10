@@ -80,7 +80,7 @@ nav{
   border: none;
   background-color: rgb(218, 218, 218);
   padding: 0.5rem;
-  width: 70%;
+  width: calc(100% - 76.25px);
   border-radius: 0.5rem;
 }
 

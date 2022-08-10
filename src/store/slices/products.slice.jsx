@@ -1,6 +1,7 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { setIsLoading } from './isLoading.slice'
-import axios from 'axios'
+import { setIsLoading } from './isLoading.slice';
+import { setShowAll } from './showAll.slice';
+import axios from 'axios';
 
 export const productsSlice = createSlice({
     name: 'products',
@@ -17,7 +18,10 @@ export const getProductsThunk = () => (dispatch) => {
     dispatch(setIsLoading(true));
     return axios.get('https://ecommerce-api-react.herokuapp.com/api/v1/products')
         .then((res) => dispatch(setProducts(res.data.data.products)))
-        .finally(() => dispatch(setIsLoading(false)));
+        .finally(() => {
+          dispatch(setIsLoading(false))
+          dispatch(setShowAll(false))
+        });
 }
 
 export const filterProductsThunk = (searchedValueFixed) => (dispatch) => {

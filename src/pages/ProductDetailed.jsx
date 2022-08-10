@@ -45,7 +45,7 @@ const ProductDetailed = () => {
       // navigate('/')
       // dispatch(filterByCategoryThunk(productData?.category?.id)) }}
       >
-        <p>{productData?.category?.name}</p>
+        <p>Category > {productData?.category?.name}</p>
       </div>
       <div className="product-container">
         <h2>{productData?.title}</h2>

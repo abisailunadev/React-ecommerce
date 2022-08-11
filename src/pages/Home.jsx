@@ -42,7 +42,7 @@ const Home = () => {
           <form onSubmit={submitForm}>
             <input
               type="text"
-              placeholder='Enter your product name'
+              placeholder='Enter a product name'
               onChange={e => setSearchedValue(e.target.value)}
               value={searchedValue.trim()}
             />

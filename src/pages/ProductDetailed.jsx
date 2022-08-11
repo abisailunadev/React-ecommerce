@@ -92,7 +92,7 @@ const ProductDetailed = () => {
                   </div>
                   <div className="product-button">
                     <button>
-                      <p>Add to cart</p>
+                      <i className='bx bxs-cart-add bx-xs' ></i>
                     </button>
                   </div>
                 </div>

@@ -234,11 +234,15 @@ nav{
 }
 
 .product-button button{
-  padding: 7px 12px;
+  height: 31px;
+  width: 40px;
   border: none;
   background-color: rgb(18, 35, 68);
   color: white;
   border-radius: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Product Detailed */

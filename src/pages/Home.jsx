@@ -77,7 +77,9 @@ const Home = () => {
                     <p>${product.price}</p>
                   </div>
                   <div className="product-button">
-                    <button>Buy</button>
+                    <button>
+                      <i className='bx bxs-cart-add bx-xs' ></i>
+                    </button>
                   </div>
                 </div>
               </div>

@@ -455,8 +455,8 @@ nav{
   justify-content: center;
 }
 
-.login-input-container label i{
-  color: rgb(18, 35, 68);
+.login-input-container label{
+  font-size: 1.1rem;
 }
 
 .login-input-container input{

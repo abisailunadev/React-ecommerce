@@ -8,7 +8,7 @@ const NavBar = () => {
   return (
     <nav>
       <div className="nav-icon" onClick={() => navigate('/')}>
-        <p><i class='bx bxl-etsy bx-lg'></i></p>
+        <p><i className='bx bxl-etsy bx-lg'></i></p>
       </div>
       <div className="nav-search-bar">
         <input type="text" />

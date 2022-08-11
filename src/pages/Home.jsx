@@ -73,7 +73,7 @@ const Home = () => {
                 </div>
                 <div className="product-price-buy">
                   <div className="product-price">
-                    <p>Price</p>
+                    <p><b>Price</b></p>
                     <p>${product.price}</p>
                   </div>
                   <div className="product-button">

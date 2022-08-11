@@ -9,16 +9,16 @@ const NavBar = () => {
   return (
     <nav>
       <div className="nav-icon" onClick={() => navigate('/')}>
-        <img src={rocket_icon} alt="" />
-        <p>E-Commerce</p>
+        <p><i class='bx bxl-etsy bx-lg'></i></p>
       </div>
       <div className="nav-search-bar">
         <input type="text" />
       </div>
       <div className="nav-options">
         <ul>
-          <li onClick={() => navigate('/login')}>Login</li>
-          <li onClick={() => navigate('/purchases')}>Purchases</li>
+          <li onClick={() => navigate('/login')}><i className='bx bxs-user bx-xs'></i></li>
+          <li onClick={() => navigate('/purchases')}><i className='bx bxs-basket' ></i></li>
+          <li><i className='bx bxs-cart' ></i></li>
         </ul>
       </div>
     </nav>

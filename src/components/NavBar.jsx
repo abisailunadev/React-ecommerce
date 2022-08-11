@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link, useNavigate } from 'react-router-dom'
-import rocket_icon from '../images/rocket_icon.png'
+import { useNavigate } from 'react-router-dom'
 
 const NavBar = () => {
 
@@ -16,9 +15,9 @@ const NavBar = () => {
       </div>
       <div className="nav-options">
         <ul>
-          <li onClick={() => navigate('/login')}><i className='bx bxs-user bx-xs'></i></li>
-          <li onClick={() => navigate('/purchases')}><i className='bx bxs-basket' ></i></li>
-          <li><i className='bx bxs-cart' ></i></li>
+          <li onClick={() => navigate('/login')}><i className='bx bxs-user bx-sm'></i></li>
+          <li onClick={() => navigate('/purchases')}><i className='bx bxs-basket bx-sm' ></i></li>
+          <li><i className='bx bxs-cart bx-sm' ></i></li>
         </ul>
       </div>
     </nav>

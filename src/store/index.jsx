@@ -3,12 +3,16 @@ import productsSlice from './slices/products.slice';
 import isLoadingSlice from './slices/isLoading.slice';
 import isShowingSlice from './slices/isShowing.slice';
 import showAllSlice from './slices/showAll.slice';
+import userSlice from './slices/user.slice';
+import isShowingCartSlice from './slices/isShowingCart.slice';
 
 export default configureStore({
     reducer: {
       products: productsSlice,
       isLoading: isLoadingSlice,
       isShowing: isShowingSlice,
-      showAll: showAllSlice
+      showAll: showAllSlice,
+      user: userSlice,
+      isShowingCart: isShowingCartSlice
     }
 })

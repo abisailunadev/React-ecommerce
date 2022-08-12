@@ -42,7 +42,6 @@ const Cart = () => {
                 </div>
                 <div className="cart-item-description">
                   <div className="cart-item-brand-price">
-                    <p>{item.brand}</p>
                     <p><b>{item.title}</b></p>
                   </div>
                   <h3>${item.price}</h3>

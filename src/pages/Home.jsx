@@ -11,6 +11,7 @@ const Home = () => {
   // React
   const [searchedValue, setSearchedValue] = useState('');
   const [ categories, setCategories ] = useState([]);
+  const [ productInput, setProductInput ] = useState(1);
 
   // Router DOM
   const navigate = useNavigate();
@@ -62,11 +63,13 @@ const Home = () => {
       <div className='products-ul-container'>
         <ul>
           {products.map(product => (
-            <li key={product.id} className='product-card' onClick={() => navigate(`/product/${product.id}`)}>
-              <div className="product-image">
-                <img src={product.productImgs?.[0]} alt="" />
+            <li key={product.id} className='product-card'>
+              <div className="product-on-click" onClick={() => navigate(`/product/${product.id}`)}>
+                <div className="product-image">
+                  <img src={product.productImgs?.[0]} alt="" />
+                </div>
+                <div className="product-line"></div>
               </div>
-              <div className="product-line"></div>
               <div className="product-description">
                 <div className="product-title">
                   <p><b>{product.title}</b></p>
@@ -77,7 +80,16 @@ const Home = () => {
                     <p>${product.price}</p>
                   </div>
                   <div className="product-button">
-                    <button>
+                    <div className="add-product-button">
+                      <button onClick={() => setProductInput(productInput + 1)}>+</button>
+                      <input
+                        type="number"
+                        value={productInput}
+                        onChange={e => setProductInput(e.target.value)}
+                      />
+                      <button onClick={() => setProductInput(productInput - 1)}>-</button>
+                    </div>
+                    <button className='add-product-btn'>
                       <i className='bx bxs-cart-add bx-xs' ></i>
                     </button>
                   </div>

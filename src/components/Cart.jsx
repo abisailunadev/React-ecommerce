@@ -1,10 +1,27 @@
-import React from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { setIsShowingCart } from '../store/slices/isShowingCart.slice';
+import { getCartThunk } from '../store/slices/cart.slice';
 
 const Cart = () => {
 
   const dispatch = useDispatch();
+  const cart = useSelector(state => state.cart);
+  const products = useSelector(state => state.products);
+
+  useEffect(() => {
+    dispatch(getCartThunk())
+  }, [])
+
+  console.log(cart)
+
+  const itemImage = (item) => {
+    for(let i in products){
+      if(products[i]?.id === item?.id){
+        return products[i].productImgs[0]
+      }
+    }
+  }
 
   return (
     <div className='cart-overlay'>
@@ -16,7 +33,29 @@ const Cart = () => {
           </button>
         </div>
         <div className="cart-data-container">
-          <h2>Cart</h2>
+          <h2>Your shopping cart</h2>
+          <ul>
+            {cart.map(item => (
+              <li key={item.id}>
+                <div className="cart-item-img">
+                  <img src={itemImage(item)} alt="" />
+                </div>
+                <div className="cart-item-description">
+                  <div className="cart-item-brand-price">
+                    <p>{item.brand}</p>
+                    <p><b>{item.title}</b></p>
+                  </div>
+                  <h3>${item.price}</h3>
+                </div>
+                <div className="cart-item-options">
+                  <button>
+                    <i className='bx bx-trash'></i>
+                  </button>
+                  <p>{item.productsInCart.quantity}</p>
+                </div>
+              </li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>

@@ -21,7 +21,7 @@ const NavBar = () => {
         <ul>
           <li onClick={() => token ? navigate('/user') : navigate('/login')}><i className='bx bxs-user bx-sm'></i></li>
           <li onClick={() => navigate('/purchases')}><i className='bx bxs-basket bx-sm' ></i></li>
-          <li onClick={() => dispatch(setIsShowingCart(true))}><i className='bx bxs-cart bx-sm' ></i></li>
+          <li onClick={() => token ? dispatch(setIsShowingCart(true)) : navigate('/login')}><i className='bx bxs-cart bx-sm' ></i></li>
         </ul>
       </div>
     </nav>

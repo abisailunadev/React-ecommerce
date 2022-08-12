@@ -237,7 +237,45 @@ nav{
 
 .cart-data-container{
   padding: 0.5rem;
-  border: 1px solid red;
+}
+
+.cart-data-container h2{
+  margin-bottom: 1rem;
+  color: rgb(18, 35, 68);
+}
+
+.cart-data-container ul{
+  display: grid;
+  gap: 0.5rem;
+}
+
+.cart-data-container ul li{
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  border-radius: 0.5rem;
+  background-color: white;
+  display: flex;
+  padding: 0.5rem;
+  gap: 0.5rem;
+  height: 120px;
+}
+
+.cart-item-img{
+  width: 30%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.cart-item-img img{
+  width: 60px;
+  height: 60px;
+}
+
+.cart-item-description{
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 

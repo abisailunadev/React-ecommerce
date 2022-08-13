@@ -45,7 +45,7 @@ const ProductDetailed = () => {
       // navigate('/')
       // dispatch(filterByCategoryThunk(productData?.category?.id)) }}
       >
-        <p>Category {'>'} {productData?.category?.name}</p>
+        <p>{productData?.category?.name}</p>
       </div>
       <div className="product-container">
         <h2>{productData?.title}</h2>
@@ -58,10 +58,16 @@ const ProductDetailed = () => {
             <h3>Price</h3>
             <p>${productData?.price}</p>
           </div>
-          <div className="product-button">
-            <button>
-              <h3>Add to cart</h3>
-            </button>
+          <div className="pd-product-button">
+              <div className="pd-product-quantity">
+                <button>+</button>
+                <span>1</span>
+                <button>-</button>
+              </div>
+              <button className='pd-add-product-btn'>
+                <h3>Add to cart</h3>
+              </button>
+
           </div>
         </div>
       </div>
@@ -91,7 +97,7 @@ const ProductDetailed = () => {
                     <p>${sugestedProduct?.price}</p>
                   </div>
                   <div className="product-button">
-                    <button>
+                    <button className='add-product-btn'>
                       <i className='bx bxs-cart-add bx-xs' ></i>
                     </button>
                   </div>

@@ -33,28 +33,47 @@ const Cart = () => {
           </button>
         </div>
         <div className="cart-data-container">
-          <h2>Your shopping cart</h2>
-          <ul>
-            {cart.map(item => (
-              <li key={item.id}>
-                <div className="cart-item-img">
-                  <img src={itemImage(item)} alt="" />
-                </div>
-                <div className="cart-item-description">
-                  <div className="cart-item-brand-price">
-                    <p><b>{item.title}</b></p>
+          <div className="cart-items-container">
+            <h2>Your shopping cart</h2>
+            <ul>
+              {cart.map(item => (
+                <li key={item.id}>
+                  <div className="cart-item-img-description">
+                    <div className="cart-item-img">
+                      <img src={itemImage(item)} alt="" />
+                    </div>
+                    <div className="cart-item-description">
+                      <div className="cart-item-brand-price">
+                        <p><b>{item.title}</b></p>
+                      </div>
+                    </div>
                   </div>
-                  <h3>${item.price}</h3>
-                </div>
-                <div className="cart-item-options">
-                  <button>
-                    <i className='bx bx-trash'></i>
-                  </button>
-                  <p>{item.productsInCart.quantity}</p>
-                </div>
-              </li>
-            ))}
-          </ul>
+                  <div className="pd-line"></div>
+                  <div className="cart-item-price">
+                    <p>${item.price}</p>
+                  </div>
+                  <div className="cart-item-quantity-options">
+                    <div className="cart-item-options">
+                      <button>+</button>
+                      <span>1</span>
+                      <button>-</button>
+                    </div>
+                    <div>
+                      <button className='cart-item-delete-btn'>
+                        <i className='bx bxs-trash'></i>
+                      </button>
+                    </div>
+                  </div>
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div className="cart-total-pay-container">
+            <p>Total: </p>
+            <button className='cart-checkout-btn'>
+              <h3>Checkout</h3>
+            </button>
+          </div>
         </div>
       </div>
     </div>

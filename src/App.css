@@ -76,6 +76,7 @@ nav{
 .nav-options{
   display: flex;
   align-items: center;
+  padding: 0.5rem;
 }
 
 .nav-options ul{
@@ -339,6 +340,7 @@ nav{
 }
 
 .cart-total-pay-container{
+  padding: 0 0.5rem;
   width: 100%;
   display: flex;
   flex-direction: column;

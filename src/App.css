@@ -51,6 +51,8 @@ nav{
   height: 8vh;
   display: flex;
   justify-content: space-between;
+  position: fixed;
+  width: 100%;
 }
 
 .nav-icon{
@@ -92,6 +94,10 @@ nav{
 }
 
 /* Home */
+
+.home{
+  padding: 3.5rem 0 0 0;
+}
 
 .home-menu{
   padding: 1rem 0.5rem 1rem 0.5rem;
@@ -635,6 +641,7 @@ nav{
   justify-content: center;
   gap: 1rem;
   padding: 2rem;
+  padding-top: 5rem;
 }
 
 .login-test-container{
@@ -714,6 +721,7 @@ nav{
 
 .user-view-container{
   padding: 2rem;
+  padding-top: 5rem;
 }
 
 .user-data-container{
@@ -757,6 +765,7 @@ nav{
 
 .purchases-view-container{
   padding: 1rem 2rem;
+  padding-top: 4rem;
 }
 
 .purchases-view-container h2{

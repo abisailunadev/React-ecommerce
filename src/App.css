@@ -763,11 +763,12 @@ nav{
 
 .purchases-view-container h2{
   color: rgb(18, 35, 68);
+  margin-bottom: 1rem;
 }
 
 .pch-ul{
   display: grid;
-  gap: 0.5rem;
+  gap: 1rem;
   margin-top: 0.5rem;
 }
 

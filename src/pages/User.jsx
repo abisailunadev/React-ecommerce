@@ -25,6 +25,9 @@ const User = () => {
         </div>
         <button onClick={logout}><h3>Logout</h3></button>
       </div>
+
+      <div className="user-extra-data"></div>
+      
     </div>
   );
 };

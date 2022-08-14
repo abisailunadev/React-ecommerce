@@ -83,6 +83,9 @@ const Login = () => {
           {/*<button onClick={useTestCredentials}>Use credentials</button>*/}
         </div>
       </div>
+
+      <div className="login-extra-data"></div>
+      
     </div>
   );
 };

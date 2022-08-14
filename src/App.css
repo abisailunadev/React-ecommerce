@@ -718,6 +718,10 @@ nav{
   font-size: 1rem;
 }
 
+.login-extra-data{
+  height: 20vh;
+}
+
 /* User */
 
 .user-view-container{
@@ -760,6 +764,10 @@ nav{
   border-radius: 0.5rem;
   background-color: rgb(18, 35, 68);
   color: white;
+}
+
+.user-extra-data{
+  height: 50vh;
 }
 
 /* Purchases */
@@ -870,6 +878,7 @@ nav{
   background-color: rgb(167, 167, 167);
   padding: 2rem 1rem 1rem 1rem;
   text-align: center;
+  
 }
 
 .footer-container ul li{

@@ -96,7 +96,7 @@ nav{
 /* Home */
 
 .home{
-  padding: 8vh 0 0 0;
+  padding: calc(8vh + 1rem) 0 1rem 0;
 }
 
 .home-menu{
@@ -862,4 +862,34 @@ nav{
 
 .pch-total-pchs-container p{
   color: rgb(18, 35, 68);
+}
+
+/* Footer */
+
+.footer-container{
+  background-color: rgb(167, 167, 167);
+  padding: 2rem 1rem 1rem 1rem;
+  text-align: center;
+}
+
+.footer-container ul li{
+  list-style: none;
+}
+
+.ft-about-container{
+  text-align: start;
+}
+
+.ft-social-media-container{
+  margin: 1rem 0;
+}
+
+.ft-social-media-container ul{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.ft-social-media-container a i{
+  color: black;
 }

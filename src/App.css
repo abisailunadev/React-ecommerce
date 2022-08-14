@@ -754,3 +754,9 @@ nav{
   background-color: rgb(18, 35, 68);
   color: white;
 }
+
+/* Purchases */
+
+.purchases-view-container{
+  padding: 1rem;
+}

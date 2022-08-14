@@ -1,13 +1,15 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom'
 import { setIsShowingCart } from '../store/slices/isShowingCart.slice'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 const NavBar = () => {
 
   const navigate = useNavigate();
   const token = localStorage.getItem('token')
   const dispatch = useDispatch();
+
+  const isCartWithProducts = useSelector(state => state.isCartWithProducts)
 
   return (
     <nav>
@@ -21,7 +23,14 @@ const NavBar = () => {
         <ul>
           <li onClick={() => token ? navigate('/user') : navigate('/login')}><i className='bx bxs-user bx-sm'></i></li>
           <li onClick={() => navigate('/purchases')}><i className='bx bxs-basket bx-sm' ></i></li>
-          <li onClick={() => token ? dispatch(setIsShowingCart(true)) : navigate('/login')}><i className='bx bxs-cart bx-sm' ></i></li>
+          <li onClick={() => token ? dispatch(setIsShowingCart(true)) : navigate('/login')}>
+            {isCartWithProducts ?
+              (
+                <i className='bx bxs-cart bx-sm' ></i>
+              ) : (
+                <i class='bx bx-cart bx-sm' ></i>
+              )}
+          </li>
         </ul>
       </div>
     </nav>

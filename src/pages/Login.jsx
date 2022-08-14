@@ -23,12 +23,12 @@ const Login = () => {
         localStorage.setItem('username', `${res.data.data.user.firstName} ${res.data.data.user.lastName}`)
         dispatch(setUser(res.data.data.user))
         navigate('/')
-        console.log(res.data)
+        //console.log(res.data)
       })
       .catch(err => {
         if(err){
           alert('Invalid username and/or password')
-          console.error(err)
+          //console.error(err)
         }
       })
     reset({

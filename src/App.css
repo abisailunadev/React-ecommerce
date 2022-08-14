@@ -760,3 +760,92 @@ nav{
 .purchases-view-container{
   padding: 1rem;
 }
+
+.purchases-view-container h2{
+  color: rgb(18, 35, 68);
+}
+
+.pch-ul{
+  display: grid;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+.pch-container{
+  list-style: none;
+  border-radius: 0.5rem;
+  padding: 0.75rem;
+  background-color: white;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.purchases-view-container .pd-line{
+  width: 100%;
+}
+
+.pch-date-container{
+  width: 100%;
+}
+
+.pch-products-container{
+  width: 100%;
+}
+
+.pch-ul-products{
+  display: grid;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.pch-ul-products .pd-line{
+  margin: 0;
+}
+
+.pch-product-container{
+  width: 100%;
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0 0.5rem;
+}
+
+.pch-pd-img-title-price{
+  display: flex;
+  gap: 0.5rem;
+}
+
+.pch-pd-img{
+  min-width: 25%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.pch-pd-img img{
+  max-width: 45px;
+  max-height: 45px;
+}
+
+.pch-pd-description{
+  display: flex;
+  justify-content: space-between;
+}
+
+.pch-total-container{
+  width: 100%;
+  margin-top: 0.5rem;
+  text-align: end;
+}
+
+.pch-total-container b{
+  color: rgb(18, 35, 68);
+}
+
+.pch-total-pchs-container{
+  margin-top: 1rem;
+  text-align: center;
+}

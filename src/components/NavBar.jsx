@@ -2,12 +2,18 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom'
 import { setIsShowingCart } from '../store/slices/isShowingCart.slice'
 import { useDispatch, useSelector } from 'react-redux';
+import { getCartThunk } from '../store/slices/cart.slice';
+import { useEffect } from 'react';
 
 const NavBar = () => {
 
   const navigate = useNavigate();
   const token = localStorage.getItem('token')
   const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(getCartThunk())
+  }, [])
 
   const isCartWithProducts = useSelector(state => state.isCartWithProducts)
 
@@ -28,7 +34,7 @@ const NavBar = () => {
               (
                 <i className='bx bxs-cart bx-sm' ></i>
               ) : (
-                <i class='bx bx-cart bx-sm' ></i>
+                <i className='bx bx-cart bx-sm' ></i>
               )}
           </li>
         </ul>

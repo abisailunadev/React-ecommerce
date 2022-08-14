@@ -2,6 +2,7 @@ import React from 'react';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { getPurchasesThunk } from '../store/slices/purchases.slice';
+import { getProductsThunk } from '../store/slices/products.slice';
 
 const Purchases = () => {
 
@@ -12,6 +13,7 @@ const Purchases = () => {
 
   useEffect(() => {
     dispatch(getPurchasesThunk())
+    dispatch(getProductsThunk())
   }, [])
 
   console.log(purchases)

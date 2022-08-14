@@ -358,6 +358,21 @@ nav{
   border: none;
 }
 
+.cart-empty{
+  display: flex;
+  height: 90%;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.cart-empty h2,
+.cart-empty i{
+  color: rgb(18, 35, 68);
+}
+
+
 
 .products-ul-container{
   padding: 0 1rem 1rem 1rem;

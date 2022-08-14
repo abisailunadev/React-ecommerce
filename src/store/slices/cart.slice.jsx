@@ -2,6 +2,7 @@ import { createSlice } from '@reduxjs/toolkit';
 import axios from 'axios';
 import getConfig from '../../utils/getConfig'
 import { setIsLoading } from './isLoading.slice';
+import { setIsCartWithProducts } from './isCartWithProducts.slice';
 
 export const cartSlice = createSlice({
     name: 'cart',
@@ -17,13 +18,26 @@ export const cartSlice = createSlice({
 export const getCartThunk = () => (dispatch) => {
     dispatch(setIsLoading(true));
     return axios.get('https://ecommerce-api-react.herokuapp.com/api/v1/cart', getConfig())
-        .then((res) => dispatch(setCart(res.data.data.cart.products)))
+        .then((res) => {
+          dispatch(setCart(res.data.data.cart.products))
+          dispatch(setIsCartWithProducts(true))
+        })
+        .catch(err => dispatch(setIsCartWithProducts(false)))
         .finally(() => dispatch(setIsLoading(false)));
 }
 
 export const addProductToCartThunk = (productToAdd) => (dispatch) => {
     dispatch(setIsLoading(true));
     return axios.post('https://ecommerce-api-react.herokuapp.com/api/v1/cart', productToAdd, getConfig())
+        .then(() => dispatch(getCartThunk()))
+        .finally(() => {
+          dispatch(setIsLoading(false))
+        });
+}
+
+export const updateProductInCartThunk = (productUpdated) => (dispatch) => {
+    dispatch(setIsLoading(true));
+    return axios.patch('https://ecommerce-api-react.herokuapp.com/api/v1/cart', productUpdated, getConfig())
         .then(() => dispatch(getCartThunk()))
         .finally(() => dispatch(setIsLoading(false)));
 }
@@ -39,7 +53,10 @@ export const purchaseCartThunk = () => (dispatch) => {
     dispatch(setIsLoading(true));
     return axios.post('https://ecommerce-api-react.herokuapp.com/api/v1/purchases', {},getConfig())
         .then(() => dispatch(setCart([])))
-        .finally(() => dispatch(setIsLoading(false)));
+        .finally(() => {
+          dispatch(setIsLoading(false))
+          dispatch(setIsCartWithProducts(false))
+        });
 }
 
 export const { setCart } = cartSlice.actions;

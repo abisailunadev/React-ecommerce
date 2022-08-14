@@ -2,19 +2,27 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setIsShowingCart } from '../store/slices/isShowingCart.slice';
 import { getCartThunk } from '../store/slices/cart.slice';
-import { deleteProductInCart, purchaseCartThunk } from '../store/slices/cart.slice';
+import { deleteProductInCart, purchaseCartThunk, updateProductInCartThunk } from '../store/slices/cart.slice';
+import { setIsCartWithProducts } from '../store/slices/isCartWithProducts.slice';
+import { useNavigate } from 'react-router-dom';
 
 const Cart = () => {
 
   const dispatch = useDispatch();
   const cart = useSelector(state => state.cart);
   const products = useSelector(state => state.products);
+  const isCartWithProducts = useSelector(state => state.isCartWithProducts)
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     dispatch(getCartThunk())
   }, [])
 
-  console.log(cart)
+  //console.log(cart)
+  if(cart.length === 0){
+    dispatch(setIsCartWithProducts(false))
+  }
 
   const itemImage = (item) => {
     for(let i in products){
@@ -43,6 +51,28 @@ const Cart = () => {
 
   const purchaseCart = () => {
     dispatch(purchaseCartThunk())
+    dispatch(setIsShowingCart(false))
+    navigate('/purchases')
+  }
+
+  const updateAddProduct = (item) => {
+    const productUpdated = {
+      id: item.id,
+      newQuantity: (item.productsInCart.quantity + 1)
+    }
+
+    dispatch(updateProductInCartThunk(productUpdated))
+  }
+
+  const updateSubstractProduct = (item) => {
+    if(item.productsInCart.quantity > 1){
+      const productUpdated = {
+        id: item.id,
+        newQuantity: (item.productsInCart.quantity - 1)
+      }
+
+      dispatch(updateProductInCartThunk(productUpdated))
+    }
   }
 
   return (
@@ -54,6 +84,8 @@ const Cart = () => {
             <i className='bx bx-x bx-sm' ></i>
           </button>
         </div>
+        {isCartWithProducts ?
+        (
         <div className="cart-data-container">
           <div className="cart-items-container">
             <h2>Your shopping cart</h2>
@@ -76,9 +108,9 @@ const Cart = () => {
                   </div>
                   <div className="cart-item-quantity-options">
                     <div className="cart-item-options">
-                      <button>+</button>
+                      <button onClick={() => updateAddProduct(item)}>+</button>
                       <span>{item.productsInCart.quantity}</span>
-                      <button>-</button>
+                      <button onClick={() => updateSubstractProduct(item)}>-</button>
                     </div>
                     <div>
                       <button className='cart-item-delete-btn' onClick={() => deleteProduct(item)}>
@@ -97,6 +129,13 @@ const Cart = () => {
             </button>
           </div>
         </div>
+        ) : (
+          <div className='cart-empty'>
+            <h2>Your cart is empty :{'('}</h2>
+            <i className='bx bx-cart bx-lg' ></i>
+          </div>
+        )
+        }
       </div>
     </div>
   );

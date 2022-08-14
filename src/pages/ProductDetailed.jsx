@@ -32,15 +32,15 @@ const ProductDetailed = () => {
     setSugestedProducts(filteredProductsFixed)
   }, [allProducts, productId])
 
-  console.log(productData)
-  console.log(sugestedProducts)
+  //console.log(productData)
+  //console.log(sugestedProducts)
 
   const addProduct = () => {
     const productToAdd = {
       id: productId,
       quantity: productQuantity
     }
-    console.log(productToAdd)
+    //console.log(productToAdd)
     dispatch(addProductToCartThunk(productToAdd))
   }
 

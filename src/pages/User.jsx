@@ -10,6 +10,7 @@ const User = () => {
 
   const logout = () => {
     localStorage.removeItem('token')
+    localStorage.removeItem('username')
     navigate('/')
   }
 
@@ -20,7 +21,7 @@ const User = () => {
           <img src={defaultpp}/>
         </div>
         <div className="user-data-name-container">
-          <p><b>{user.firstName} {user.lastName}</b></p>
+          <p><b>{localStorage.getItem('username')}</b></p>
         </div>
         <button onClick={logout}><h3>Logout</h3></button>
       </div>

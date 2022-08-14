@@ -27,10 +27,10 @@ const Home = () => {
     axios.get('https://ecommerce-api-react.herokuapp.com/api/v1/products/categories')
     .then(res => setCategories(res.data.data.categories))
   }, [])
-  console.log(products)
+  //console.log(products)
   
   const searchedValueFixed = `${searchedValue[0]?.toUpperCase()}${searchedValue.substring(1).toLowerCase()}`
-  console.log(searchedValueFixed)
+  //console.log(searchedValueFixed)
   
   const submitForm = (e) => {
     e.preventDefault();

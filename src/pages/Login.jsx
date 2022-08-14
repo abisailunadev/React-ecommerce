@@ -15,11 +15,12 @@ const Login = () => {
   const dispatch = useDispatch();
 
   const userFormSubmit = (obj) => {
-    console.log(obj)
+    //console.log(obj)
 
     axios.post('https://ecommerce-api-react.herokuapp.com/api/v1/users/login', obj)
       .then(res => {
         localStorage.setItem('token', res.data.data.token)
+        localStorage.setItem('username', `${res.data.data.user.firstName} ${res.data.data.user.lastName}`)
         dispatch(setUser(res.data.data.user))
         navigate('/')
         console.log(res.data)
@@ -79,7 +80,7 @@ const Login = () => {
         <div className="login-test-credentials-container">
           <p>abisai@test.com</p>
           <p>test1234</p>
-          <button onClick={useTestCredentials}>Use credentials</button>
+          {/*<button onClick={useTestCredentials}>Use credentials</button>*/}
         </div>
       </div>
     </div>

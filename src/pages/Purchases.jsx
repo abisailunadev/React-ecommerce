@@ -50,7 +50,9 @@ const Purchases = () => {
   const purchasedInTotal = () => {
     let sum = 0
     for(let i in purchases){
-      sum = sum
+      for(let ite in purchases[i].cart.products){
+        sum = sum + (purchases[i].cart.products[ite]?.price * purchases[i].cart.products[ite]?.productsInCart.quantity)
+      } 
     }
     return sum
   }
@@ -75,7 +77,7 @@ const Purchases = () => {
                         </div>
                         <div className="pch-pd-title-price">
                           <p>{item.title}</p>
-                          <p>${item.price}</p>
+                          <p style={{fontSize: '0.8rem', color: 'gray'}}>${item.price}</p>
                         </div>
                       </div>
                       <div className="pch-pd-description">
@@ -94,7 +96,7 @@ const Purchases = () => {
         )).reverse()}
       </ul>
       <div className="pch-total-pchs-container">
-        <p><b>Total purchased</b>: {}</p>
+        <p><b>Total purchased</b>: ${purchasedInTotal()}</p>
       </div>
     </div>
   );

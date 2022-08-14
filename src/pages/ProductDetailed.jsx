@@ -58,7 +58,7 @@ const ProductDetailed = () => {
     <div className='product-detailed-container'>
       <div className="pd-btn-container">
         <button onClick={() => navigate('/') /*-1*/}>
-          <i className='bx bx-arrow-back'></i>
+          <i className='bx bxs-chevron-left bx-xs'></i>
           <p>Back</p>
         </button>
       </div>

@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { setIsShowingCart } from '../store/slices/isShowingCart.slice';
 import { getCartThunk } from '../store/slices/cart.slice';
+import { deleteProductInCart, purchaseCartThunk } from '../store/slices/cart.slice';
 
 const Cart = () => {
 
@@ -21,6 +22,27 @@ const Cart = () => {
         return products[i].productImgs[0]
       }
     }
+  }
+
+  const itemTotal = (item) => {
+    const total = (item.productsInCart.quantity * item.price)
+    return total
+  }
+
+  const productsTotal = () => {
+    let sum = 0
+    for(let i in cart){
+      sum = sum + (cart[i].productsInCart.quantity * cart[i].price)
+    }
+    return sum
+  }
+
+  const deleteProduct = (item) => {
+    dispatch(deleteProductInCart(item.id))
+  }
+
+  const purchaseCart = () => {
+    dispatch(purchaseCartThunk())
   }
 
   return (
@@ -50,16 +72,16 @@ const Cart = () => {
                   </div>
                   <div className="pd-line"></div>
                   <div className="cart-item-price">
-                    <p>${item.price}</p>
+                    <p>${itemTotal(item)}{item.productsInCart.quantity > 1 && ` x ${item.productsInCart.quantity}`}</p>
                   </div>
                   <div className="cart-item-quantity-options">
                     <div className="cart-item-options">
                       <button>+</button>
-                      <span>1</span>
+                      <span>{item.productsInCart.quantity}</span>
                       <button>-</button>
                     </div>
                     <div>
-                      <button className='cart-item-delete-btn'>
+                      <button className='cart-item-delete-btn' onClick={() => deleteProduct(item)}>
                         <i className='bx bxs-trash'></i>
                       </button>
                     </div>
@@ -69,8 +91,8 @@ const Cart = () => {
             </ul>
           </div>
           <div className="cart-total-pay-container">
-            <p>Total: </p>
-            <button className='cart-checkout-btn'>
+            <p>Total: ${productsTotal()}</p>
+            <button className='cart-checkout-btn' onClick={purchaseCart}>
               <h3>Checkout</h3>
             </button>
           </div>

@@ -7,7 +7,7 @@ export const cartSlice = createSlice({
     name: 'cart',
     initialState: [],
     reducers: {
-      setCar: (state, action) => {
+      setCart: (state, action) => {
         const cart = action.payload
         return cart
       }
@@ -17,10 +17,31 @@ export const cartSlice = createSlice({
 export const getCartThunk = () => (dispatch) => {
     dispatch(setIsLoading(true));
     return axios.get('https://ecommerce-api-react.herokuapp.com/api/v1/cart', getConfig())
-        .then((res) => dispatch(setCar(res.data.data.cart.products)))
+        .then((res) => dispatch(setCart(res.data.data.cart.products)))
         .finally(() => dispatch(setIsLoading(false)));
 }
 
-export const { setCar } = cartSlice.actions;
+export const addProductToCartThunk = (productToAdd) => (dispatch) => {
+    dispatch(setIsLoading(true));
+    return axios.post('https://ecommerce-api-react.herokuapp.com/api/v1/cart', productToAdd, getConfig())
+        .then(() => dispatch(getCartThunk()))
+        .finally(() => dispatch(setIsLoading(false)));
+}
+
+export const deleteProductInCart = (token) => (dispatch) => {
+    dispatch(setIsLoading(true));
+    return axios.delete(`https://ecommerce-api-react.herokuapp.com/api/v1/cart/${token}`, getConfig())
+        .then(() => dispatch(getCartThunk()))
+        .finally(() => dispatch(setIsLoading(false)));
+}
+
+export const purchaseCartThunk = () => (dispatch) => {
+    dispatch(setIsLoading(true));
+    return axios.post('https://ecommerce-api-react.herokuapp.com/api/v1/purchases', {},getConfig())
+        .then(() => dispatch(setCart([])))
+        .finally(() => dispatch(setIsLoading(false)));
+}
+
+export const { setCart } = cartSlice.actions;
 
 export default cartSlice.reducer;

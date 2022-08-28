@@ -21,6 +21,7 @@ const ProductDetailed = () => {
 
   useEffect(() => {
     dispatch(getProductsThunk());
+    window.scrollTo(0, 0);
   }, [])
 
   useEffect(() => {

@@ -63,7 +63,10 @@ const Home = () => {
       <div className='products-ul-container'>
         <ul>
           {products.map(product => (
-            <li key={product.id} className='product-card' onClick={() => navigate(`/product/${product.id}`)}>
+            <li key={product.id} className='product-card' onClick={() => {
+              navigate(`/product/${product.id}`)
+              window.scrollTo(0, 0);
+              }}>
 
                 <div className="product-image">
                   <img src={product.productImgs?.[0]} alt="" />

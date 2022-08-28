@@ -40,7 +40,7 @@ const Footer = () => {
         <h3>Product</h3>
         <ul>
         {categories.map(category => (
-                <li key={category.id} onClick={() => {navigate('/') 
+                <li key={category.id} onClick={() => {navigate('/')
                 dispatch(setShowAll(true))
                 window.scrollTo(0, 0)
                 dispatch(filterByCategoryThunk(category.id))}}>
@@ -81,8 +81,6 @@ const Footer = () => {
               <i className='bx bxl-github bx-md' ></i>
             </a>
           </li>
-          <li></li>
-          <li></li>
         </ul>
       </div>
       <p>© Aldo Abisai Luna Rojas</p>

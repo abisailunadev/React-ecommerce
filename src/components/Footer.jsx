@@ -4,11 +4,13 @@ import axios from 'axios';
 import { useDispatch } from 'react-redux';
 import { filterByCategoryThunk } from '../store/slices/products.slice';
 import { setShowAll } from '../store/slices/showAll.slice';
+import { useNavigate } from 'react-router-dom';
 
 const Footer = () => {
 
   const [ categories, setCategories ] = useState([]);
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
   useEffect(() => {
     axios.get('https://ecommerce-api-react.herokuapp.com/api/v1/products/categories')
@@ -40,7 +42,8 @@ const Footer = () => {
         {categories.map(category => (
                 <li key={category.id} onClick={() => {dispatch(filterByCategoryThunk(category.id)) 
                 dispatch(setShowAll(true))
-                window.scrollTo(0, 0)}}>
+                window.scrollTo(0, 0)
+                navigate('/')}}>
                   {category.name}
                 </li>
               ))}

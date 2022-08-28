@@ -22,7 +22,7 @@ export const getCartThunk = () => (dispatch) => {
           dispatch(setCart(res.data.data.cart.products))
           dispatch(setIsCartWithProducts(true))
         })
-        .catch(err => dispatch(setIsCartWithProducts(false)))
+        .catch(() => dispatch(setIsCartWithProducts(false)))
         .finally(() => dispatch(setIsLoading(false)));
 }
 

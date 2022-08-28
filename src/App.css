@@ -718,6 +718,16 @@ nav{
   font-size: 1rem;
 }
 
+.lg-input-container{
+  display: flex;
+  gap: 0.3rem;
+  align-items: center;
+}
+
+.lg-input-container i{
+  color: rgb(18, 35, 68);
+}
+
 .login-extra-data{
   height: 20vh;
 }
@@ -875,7 +885,7 @@ nav{
 /* Footer */
 
 .footer-container{
-  background-color: rgb(167, 167, 167);
+  background-color: rgb(204, 204, 204);
   padding: 2rem 1rem 1rem 1rem;
   text-align: center;
   
@@ -885,8 +895,43 @@ nav{
   list-style: none;
 }
 
-.ft-about-container{
+.footer-container ul li a{
+  text-decoration: none;
+  color: rgb(70, 70, 70);
+}
+
+.footer-container ul li{
+  color: rgb(70, 70, 70);
+}
+
+.ft-about-container,
+.ft-our-information-container,
+.ft-product-container,
+.ft-ecommerce-social-media-container{
   text-align: start;
+  margin-bottom: 1rem;
+}
+
+.ft-about-container ul,
+.ft-our-information-container ul,
+.ft-product-container ul{
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+}
+
+.ft-about-container li,
+.ft-our-information-container li,
+.ft-product-container li{
+  font-size: 0.95rem;
+}
+
+.ft-ecommerce-social-media-container ul{
+  display: flex;
+  margin-top: 0.5rem;
+  margin-bottom: 3rem;
+  gap: 0.2rem;
 }
 
 .ft-social-media-container{
@@ -900,5 +945,5 @@ nav{
 }
 
 .ft-social-media-container a i{
-  color: black;
+  color: rgb(70, 70, 70);
 }

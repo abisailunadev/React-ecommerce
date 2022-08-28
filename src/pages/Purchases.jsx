@@ -16,7 +16,7 @@ const Purchases = () => {
     dispatch(getProductsThunk())
   }, [])
 
-  console.log(purchases)
+  //console.log(purchases)
 
   const purchaseDate = (time) => {
     return new Date(time).toLocaleDateString('en-us', {

@@ -2,8 +2,10 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { setUser } from '../store/slices/user.slice';
+import { setIsShowingPassword } from '../store/slices/isShowingPassword.slice';
+import { useEffect } from 'react';
 
 const Login = () => {
 
@@ -13,6 +15,12 @@ const Login = () => {
   const { register, reset, handleSubmit } = useForm();
 
   const dispatch = useDispatch();
+
+  const isShowingPassword = useSelector(state => state.isShowingPassword);
+
+  useEffect(() => {
+    dispatch(setIsShowingPassword(false))
+  }, [])
 
   const userFormSubmit = (obj) => {
     //console.log(obj)
@@ -65,12 +73,24 @@ const Login = () => {
             <label htmlFor="password">
               Password
             </label>
-            <input
-              type="text"
-              id='password'
-              placeholder='Your password'
-              {...register('password')}
-            />
+            <div className="lg-input-container">
+              <input
+                type={isShowingPassword ? "text" : 'password'}
+                id='password'
+                placeholder='Your password'
+                {...register('password')}
+              />
+              {isShowingPassword ?
+              (
+                <i className='bx bx-hide bx-sm'
+                  onClick={() => dispatch(setIsShowingPassword(!isShowingPassword))}
+                ></i>
+              ) : (
+                <i className='bx bx-show bx-sm'
+                  onClick={() => dispatch(setIsShowingPassword(!isShowingPassword))}
+                ></i>
+              )}
+            </div>
           </div>
           <button><h3>Login</h3></button>
         </form>

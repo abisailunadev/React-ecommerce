@@ -19,7 +19,8 @@ const NavBar = () => {
 
   return (
     <nav>
-      <div className="nav-icon" onClick={() => navigate('/')}>
+      <div className="nav-icon" onClick={() => {navigate('/')
+        window.scrollTo(0, 0);}}>
         <p><i className='bx bxl-etsy bx-lg'></i></p>
       </div>
       <div className="nav-search-bar">
@@ -27,8 +28,14 @@ const NavBar = () => {
       </div>
       <div className="nav-options">
         <ul>
-          <li onClick={() => token ? navigate('/user') : navigate('/login')}><i className='bx bxs-user bx-sm'></i></li>
-          <li onClick={() => navigate('/purchases')}><i className='bx bxs-basket bx-sm' ></i></li>
+          <li onClick={() => {token ? navigate('/user') : navigate('/login')
+            window.scrollTo(0, 0);}}>
+            <i className='bx bxs-user bx-sm'></i>
+          </li>
+          <li onClick={() => {navigate('/purchases')
+            window.scrollTo(0, 0);}}>
+            <i className='bx bxs-basket bx-sm' ></i>
+          </li>
           <li onClick={() => token ? dispatch(setIsShowingCart(true)) : navigate('/login')}>
             {isCartWithProducts ?
               (

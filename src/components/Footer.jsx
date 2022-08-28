@@ -40,10 +40,10 @@ const Footer = () => {
         <h3>Product</h3>
         <ul>
         {categories.map(category => (
-                <li key={category.id} onClick={() => {dispatch(filterByCategoryThunk(category.id)) 
+                <li key={category.id} onClick={() => {navigate('/') 
                 dispatch(setShowAll(true))
                 window.scrollTo(0, 0)
-                navigate('/')}}>
+                dispatch(filterByCategoryThunk(category.id))}}>
                   {category.name}
                 </li>
               ))}

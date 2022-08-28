@@ -31,6 +31,7 @@ const Login = () => {
         localStorage.setItem('username', `${res.data.data.user.firstName} ${res.data.data.user.lastName}`)
         dispatch(setUser(res.data.data.user))
         navigate('/')
+        window.scrollTo(0, 0)
         //console.log(res.data)
       })
       .catch(err => {
